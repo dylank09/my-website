@@ -2,4 +2,4 @@
 
 Available at www.dylankearney.tech
 
-![main](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![Build and Publish Website via FTP](https://github.com/dylank09/my-website/actions/workflows/main.yml/badge.svg)
