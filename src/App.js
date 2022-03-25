@@ -1,17 +1,59 @@
 import React from "react";
 import "./App.css";
+import useLocalStorage from "use-local-storage";
+import { FaSun, FaRegMoon } from "react-icons/fa";
+
+import ReactSwitch from "react-switch";
 
 function App() {
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "dark" : "light"
+  );
+
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img
-          src="https://www.petmd.com/sites/default/files/styles/article_image/public/CANS_dogsmiling_379727605.jpg?itok=E-nD1tXb"
-          className="App-logo"
-          alt="logo"
+    <div className="App" data-theme={theme}>
+      <span>Dylan's Website</span>
+      <div className="dark-mode-container">
+        <span>Dark Mode</span>
+        <ReactSwitch
+          className="dark-mode-switch"
+          onChange={switchTheme}
+          checked={theme === "dark"}
+          uncheckedIcon={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <FaSun color="white" width="100%" height="100%" />
+            </div>
+          }
+          checkedIcon={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <FaRegMoon color="white" width="100%" height="100%" />
+            </div>
+          }
+          offColor="#e68a00"
+          onColor="#000000"
         />
-        <p>Successfully hosting on 000webhosting</p>
-      </header>
+      </div>
     </div>
   );
 }
