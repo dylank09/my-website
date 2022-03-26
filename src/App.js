@@ -4,6 +4,7 @@ import useLocalStorage from "use-local-storage";
 import { FaSun, FaRegMoon } from "react-icons/fa";
 
 import ReactSwitch from "react-switch";
+import SideBar from "./components/SideBar.js";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -19,7 +20,6 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <span>Dylan's Website</span>
       <div className="dark-mode-container">
         <span>Dark Mode</span>
         <ReactSwitch
@@ -54,6 +54,7 @@ function App() {
           onColor="#000000"
         />
       </div>
+      <SideBar />
     </div>
   );
 }
