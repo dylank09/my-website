@@ -25,3 +25,8 @@ code {
   --text-secondary: grey;
   --accent: darkred;
 }
+
+.disclaimer {
+  display: none;
+  /* visibility: hidden; */
+}
