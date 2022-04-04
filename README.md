@@ -6,7 +6,8 @@ Available at www.dylankearney.tech
 
 ![Build and Publish Website via FTP](https://github.com/dylank09/my-website/actions/workflows/main.yml/badge.svg)
 
-
 ## Features
- - Github action that builds and deploys website to hosting provider when new code is pushed to main
- - Dark mode switch
+
+- GitHub Action that _builds_ and _deploys_ website to hosting provider over _FTP_ when new code is pushed to main
+- Dark Mode Switch
+- Custom made Responsive SideBar

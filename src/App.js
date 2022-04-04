@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Route, Redirect } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { FaSun, FaRegMoon } from "react-icons/fa";
 import darkLogo from "./assets/dk_button.svg";
@@ -7,6 +8,10 @@ import lightLogo from "./assets/dk_button_inverted.svg";
 
 import ReactSwitch from "react-switch";
 import SideBar from "./components/SideBar.js";
+import Home from "./components/Home";
+import Projects from "./components/Projects";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -23,6 +28,11 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <div className="sidebar">
+        <Route exact path="/" element={Home} />
+        <Route exact path="/projects" element={Projects} />
+        <Route exact path="/about" element={About} />
+        <Route exact path="/contact" element={Contact} />
+        {/* <Redirect to="/" /> */}
         {theme === "dark" ? (
           <img
             id="logo"
