@@ -7,13 +7,52 @@
   position: absolute;
   left: 0;
   width: 100%;
-  transition: all 0.5s;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: var(--sidebar);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-image {
+  width: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  animation: fadein 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.sidebar-break {
+  width: 90%;
+  background-color: var(--background);
+  transition: all 0.3s ease-in-out;
+  height: 3px;
+  border: none;
 }
 
 .dark-mode-container {
-  float: right;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  align-content: center;
   justify-content: center;
+  color: white;
 }
 
 .dark-mode-switch {
@@ -21,4 +60,10 @@
   margin: 20px;
   transition: all 0.5s;
   align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    width: 80%;
+  }
 }

@@ -13,17 +13,19 @@ code {
 }
 
 :root {
-  --background: white;
+  --background: rgb(204, 204, 204);
+  --sidebar: rgb(66, 66, 66);
   --text-primary: black;
   --text-secondary: royalblue;
-  --accent: purple;
+  --accent: rgb(102, 204, 255);
   height: 100%;
 }
 [data-theme="dark"] {
-  --background: black;
+  --background: rgb(35, 34, 34);
+  --sidebar: rgb(51, 51, 51);
   --text-primary: white;
   --text-secondary: grey;
-  --accent: darkred;
+  --accent: rgb(255, 151, 189);
 }
 
 .disclaimer {
