@@ -32,7 +32,7 @@ function App() {
         <Route exact path="/projects" element={Projects} />
         <Route exact path="/about" element={About} />
         <Route exact path="/contact" element={Contact} />
-        {/* <Redirect to="/" /> */}
+        <Redirect to="/" />
         {theme === "dark" ? (
           <img
             id="logo"
