@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { FaSun, FaRegMoon } from "react-icons/fa";
 import darkLogo from "./assets/dk_button.svg";
@@ -28,11 +28,6 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <div className="sidebar">
-        <Route exact path="/" element={Home} />
-        <Route exact path="/projects" element={Projects} />
-        <Route exact path="/about" element={About} />
-        <Route exact path="/contact" element={Contact} />
-        <Redirect to="/" />
         {theme === "dark" ? (
           <img
             id="logo"
@@ -52,7 +47,7 @@ function App() {
         <div className="dark-mode-container">
           <hr className="sidebar-break"></hr>
           <div>
-            <span>Dark Mode</span>
+            <span>{theme === "dark" ? "Dark" : "Light"} Mode</span>
             <ReactSwitch
               className="dark-mode-switch"
               onChange={switchTheme}
@@ -86,6 +81,14 @@ function App() {
             />
           </div>
         </div>
+      </div>
+      <div className="main">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/projects" element={<Projects />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+        </Routes>
       </div>
     </div>
   );
