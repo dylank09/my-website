@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { FaSun, FaRegMoon } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineArrowBackIos } from "react-icons/md";
 import darkLogo from "./assets/dk_button.svg";
 import lightLogo from "./assets/dk_button_inverted.svg";
 
@@ -14,20 +16,28 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
     defaultDark ? "dark" : "light"
   );
 
+  var colour = theme === "dark" ? "white" : "black";
+
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
 
+  const toggleMenuOpen = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className="App" data-theme={theme}>
-      <div className="sidebar">
+      <div className={menuOpen ? "sidebar-opened" : "sidebar"}>
         {theme === "dark" ? (
           <img
             id="logo"
@@ -82,7 +92,27 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="main">
+      <div className="hamburger-section">
+        {menuOpen ? (
+          <MdOutlineArrowBackIos
+            className="hamburger-button"
+            size={32}
+            onClick={toggleMenuOpen}
+            color={colour}
+          />
+        ) : (
+          <GiHamburgerMenu
+            className="hamburger-button"
+            size={32}
+            onClick={toggleMenuOpen}
+            color={colour}
+          />
+        )}
+      </div>
+      <div
+        className={menuOpen ? "main-with-sidebar-opened" : "main"}
+        onClick={toggleMenuOpen}
+      >
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/projects" element={<Projects />} />
