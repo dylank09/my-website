@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { FaSun, FaRegMoon } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -17,6 +17,7 @@ import Contact from "./components/Contact";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
@@ -34,6 +35,11 @@ function App() {
   const toggleMenuOpen = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    if (pathname === "/") setMenuOpen(false);
+    else toggleMenuOpen();
+  }, [pathname]);
 
   return (
     <div className="App" data-theme={theme}>
@@ -92,7 +98,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="hamburger-section">
+      <div style={{ position: "absolute", zIndex: 2 }}>
         {menuOpen ? (
           <MdOutlineArrowBackIos
             className="hamburger-button"
@@ -109,10 +115,7 @@ function App() {
           />
         )}
       </div>
-      <div
-        className={menuOpen ? "main-with-sidebar-opened" : "main"}
-        onClick={toggleMenuOpen}
-      >
+      <div className="main" onClick={menuOpen ? toggleMenuOpen : null}>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/projects" element={<Projects />} />

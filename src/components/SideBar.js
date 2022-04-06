@@ -1,12 +1,10 @@
-// import { FaGem, FaHeart, FaGithub } from "react-icons/fa";
-// import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./SideBar.css";
 
 const SideBar = () => {
   return (
     <div className="nav-links-container">
-      <NavLink className="nav-link" to="/" exact={true}>
+      <NavLink className="nav-link" to="/">
         Home
       </NavLink>
       <NavLink className="nav-link" to="/projects">

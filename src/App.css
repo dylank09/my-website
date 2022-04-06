@@ -29,6 +29,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 100%;
 }
 
 .logo-image {
@@ -94,10 +95,6 @@
     display: none;
   }
 
-  .hamburger-section {
-    position: absolute;
-  }
-
   .sidebar-opened {
     width: 80%;
     height: 100%;
@@ -108,10 +105,7 @@
     justify-content: space-between;
     align-items: center;
     position: absolute;
-  }
-
-  .main-with-sidebar-opened {
-    display: none;
+    z-index: 2;
   }
 
   .hamburger-button {
@@ -125,5 +119,7 @@
 
   .main {
     width: 100%;
+    z-index: 1;
+    /* position: absolute; */
   }
 }
