@@ -37,8 +37,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (pathname === "/") setMenuOpen(false);
-    else toggleMenuOpen();
+    setMenuOpen(false);
   }, [pathname]);
 
   return (
