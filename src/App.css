@@ -93,6 +93,8 @@
 @media only screen and (max-width: 600px) {
   .sidebar {
     display: none;
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
   }
 
   .sidebar-opened {
@@ -106,6 +108,10 @@
     align-items: center;
     position: absolute;
     z-index: 2;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
   }
 
   .hamburger-button {
@@ -114,12 +120,43 @@
     align-self: flex-start;
     margin-top: 20px;
     margin-left: 20px;
-    transition: all 0.4s;
+    transition: all 0.3s ease-in-out;
   }
 
   .main {
     width: 100%;
     z-index: 1;
+    transition: all 0.3s ease-in-out;
     /* position: absolute; */
+  }
+
+  @keyframes slide-in {
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+    }
+  }
+
+  @keyframes slide-out {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @-webkit-keyframes slide-out {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
   }
 }
