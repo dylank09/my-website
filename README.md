@@ -10,4 +10,4 @@ Available at www.dylankearney.tech
 
 - GitHub Action that _builds_ and _deploys_ website to hosting provider over _FTP_ when new code is pushed to main
 - Dark Mode Switch
-- Custom made Responsive SideBar
+- Custom made Responsive SideBar - works on all screen sizes
