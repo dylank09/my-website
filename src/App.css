@@ -33,20 +33,10 @@
 }
 
 .logo-image {
-  width: 60%;
+  /* width: 60%;
   max-width: 150px;
   margin-top: 20px;
-  margin-bottom: 20px;
-  animation: fadein 2.3s;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  margin-bottom: 20px; */
 }
 
 .sidebar-break {
@@ -93,8 +83,6 @@
 @media only screen and (max-width: 600px) {
   .sidebar {
     display: none;
-    animation: slide-out 0.5s forwards;
-    -webkit-animation: slide-out 0.5s forwards;
   }
 
   .sidebar-opened {
@@ -139,24 +127,6 @@
   @-webkit-keyframes slide-in {
     100% {
       -webkit-transform: translateX(0%);
-    }
-  }
-
-  @keyframes slide-out {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  @-webkit-keyframes slide-out {
-    0% {
-      -webkit-transform: translateX(0%);
-    }
-    100% {
-      -webkit-transform: translateX(-100%);
     }
   }
 }

@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import darkLogo from "./assets/dk_button.svg";
 import lightLogo from "./assets/dk_button_inverted.svg";
+import CrossfadeImage from "react-crossfade-image";
 
 import ReactSwitch from "react-switch";
 import SideBar from "./components/SideBar.js";
@@ -43,21 +44,17 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <div className={menuOpen ? "sidebar-opened" : "sidebar"}>
-        {theme === "dark" ? (
-          <img
-            id="logo"
-            className="logo-image"
-            src={darkLogo}
-            alt="website logo"
-          />
-        ) : (
-          <img
-            id="logo"
-            className="logo-image"
-            src={lightLogo}
-            alt="website logo"
-          />
-        )}
+        <CrossfadeImage
+          alt="website logo"
+          className="logo-image"
+          src={theme === "dark" ? darkLogo : lightLogo}
+          style={{
+            width: "100%",
+            maxWidth: "150px",
+            marginTop: "20px",
+            marginBottom: "20px",
+          }}
+        />
         <SideBar />
         <div className="dark-mode-container">
           <hr className="sidebar-break"></hr>
