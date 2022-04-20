@@ -15,6 +15,7 @@ import Home from "./components/Home";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -117,6 +118,7 @@ function App() {
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
